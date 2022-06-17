@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --white: white;
+  --black: rgb(41, 41, 41);
+  --black2: rgb(145, 145, 145);
+  --red: red;
+  --green: green;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: var(--black);
+}
+
+/* titre de la page */
+header {
+  font-size: 1rem;
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* container des pizzas */
+.pizza-container {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 1000px;
+}
+
+/* ligne d'une pizza */
+.pizza {
+  display: flex;
+  height: 40px;
+  width: 100%;
+}
+/* partie texte et ligne à gauche */
+.pizza-gauche {
+  width: 80%;
+  display: flex;
+  position: relative;
+}
+
+.pizza-nom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+.pizza-nom span {
+  font-weight: 600;
+}
+/* positionnement des lignes au cas par cas */
+.reine::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 350px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+.reine-blanche::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 419px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+.napolitaine::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 404px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+.estoril::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 355px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+.aubergine::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 553px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+.royale::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 477px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+.speciale::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 478px;
+  right: 50px;
+  background-color: var(--black2);
+  top: 20px;
+}
+
+/* partie quantité et prix à droite */
+.pizza-droite {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(max-content, 25px) 1fr 1fr 1fr 1fr 1fr minmax(
+      max-content,
+      10px
+    );
+}
+
+.pizza-prix {
+  justify-self: end;
+}
+
+.pizza-moins,
+.pizza-plus {
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  justify-self: center;
+}
+
+input {
+  width: 25px;
+  height: 25px;
+  border: var(--black2) 1px solid;
+  outline: none;
+  text-align: center;
+}
+
+input:focus {
+  outline: 1px solid var(--black2);
+}
+.pizza-prix-total {
+  justify-self: end;
+}
+
+/* Total commande */
+
+.total-commande {
+  float: right;
+  margin: 50px 120px;
+}
