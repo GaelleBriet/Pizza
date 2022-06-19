@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let pizzas = document.querySelectorAll(".pizza");
   let boutonsMoins = document.querySelectorAll(".pizza-moins");
   let boutonsPlus = document.querySelectorAll(".pizza-plus");
-  let prixPizza = document.querySelectorAll(".pizza-prix"); //prixPizza[i].value = string
-  let prixTotal = document.querySelector(".prix-total"); // .textContent = string
-  let sousTotal = 0;
+  let prixPizza = document.querySelectorAll(".pizza-prix");
 
   pizzas.forEach((pizza, i) => {
     boutonsMoins[i].addEventListener("click", (e) => {
@@ -18,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
       sousTotal = parseInt(
         document.querySelectorAll(".pizza-prix-total")[i].textContent
       );
+      // affiche le sous-total dans le prix total
+      // comment additionner chaque ligne et les afficher dans le total ?
+      document.querySelector(".prix-total").textContent = sousTotal;
     });
 
     boutonsPlus[i].addEventListener("click", (e) => {
@@ -27,9 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll(".pizza-prix-total")[i].textContent =
         document.querySelectorAll("input")[i].value * prixPizza[i].value;
       // stocke la valeur du sous-total en nombre
-      prixTotal = parseInt(
+      sousTotal = parseInt(
         document.querySelectorAll(".pizza-prix-total")[i].textContent
       );
+      // affiche le sous-total dans le prix total
+      // comment additionner chaque ligne et les afficher dans le total ?
+      document.querySelector(".prix-total").textContent = sousTotal;
     });
   });
 });
