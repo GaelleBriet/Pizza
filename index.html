@@ -21,19 +21,18 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix0">8</div>
+          <button class="pizza-prix" value="8" disabled>8</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins0">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
             id="quantite-reine"
             class="quantite quantite0"
-            value="0"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus0">+</div>
-          <div class="pizza-prix-total pizza-prix-total0">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
@@ -46,7 +45,7 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix1">8</div>
+          <button class="pizza-prix pizza-prix1" value="8" disabled>8</button>
           <p>€</p>
           <div class="pizza-moins pizza-moins1">−</div>
           <input
@@ -54,7 +53,6 @@
             name="pizza-quantite"
             id="quantite-reineblanche"
             class="quantite quantite1"
-            value="0"
             readonly="readonly"
           />
           <div class="pizza-plus pizza-plus1">+</div>
@@ -71,7 +69,7 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix2">9</div>
+          <button class="pizza-prix pizza-prix2" value="9" disabled>9</button>
           <p>€</p>
           <div class="pizza-moins pizza-moins2">−</div>
           <input
@@ -79,7 +77,6 @@
             name="pizza-quantite"
             id="quantite-napolitaine"
             class="quantite quantite2"
-            value="0"
             readonly="readonly"
           />
           <div class="pizza-plus pizza-plus2">+</div>
@@ -95,7 +92,7 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix3">10</div>
+          <button class="pizza-prix pizza-prix3" value="10" disabled>10</button>
           <p>€</p>
           <div class="pizza-moins pizza-moins3">−</div>
           <input
@@ -103,7 +100,6 @@
             name="pizza-quantite"
             id="quantite-estoril"
             class="quantite quantite3"
-            value="0"
             readonly="readonly"
           />
           <div class="pizza-plus pizza-plus3">+</div>
@@ -120,7 +116,7 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix4">11</div>
+          <button class="pizza-prix pizza-prix4" value="11" disabled>11</button>
           <p>€</p>
           <div class="pizza-moins pizza-moins4">−</div>
           <input
@@ -128,7 +124,6 @@
             name="pizza-quantite"
             id="quantite-aubergine"
             class="quantite quantite4"
-            value="0"
             readonly="readonly"
           />
           <div class="pizza-plus pizza-plus4">+</div>
@@ -145,7 +140,7 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix5">11</div>
+          <button class="pizza-prix pizza-prix5" value="11" disabled>11</button>
           <p>€</p>
           <div class="pizza-moins pizza-moins5">−</div>
           <input
@@ -153,7 +148,6 @@
             name="pizza-quantite"
             id="quantite-royale"
             class="quantite quantite5"
-            value="0"
             readonly="readonly"
           />
           <div class="pizza-plus pizza-plus5">+</div>
@@ -170,7 +164,7 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <div class="pizza-prix pizza-prix6">12</div>
+          <button class="pizza-prix" value="12" disabled>12</button>
           <p>€</p>
           <div class="pizza-moins pizza-moins6">−</div>
           <input
@@ -178,7 +172,6 @@
             name="pizza-quantite"
             id="quantite-speciale"
             class="quantite quantite6"
-            value="0"
             readonly="readonly"
           />
           <div class="pizza-plus pizza-plus6">+</div>
@@ -189,11 +182,11 @@
     </div>
 
     <div class="total-commande">
-      <p>Total : <span class="prix-total"></span> €</p>
+      <p>Total : <span class="prix-total">0</span> €</p>
     </div>
 
     <div class="paiement-conteneur"></div>
 
-    <script src="./index.js"></script>
+    <script src="./index2.js"></script>
   </body>
 </html>

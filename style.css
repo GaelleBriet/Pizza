@@ -129,7 +129,7 @@ header {
   justify-content: center;
   align-items: center;
   display: grid;
-  grid-template-columns: minmax(max-content, 25px) 1fr 1fr 1fr 1fr 1fr minmax(
+  grid-template-columns: minmax(min-content, max-content) 1fr 1fr 1fr 1fr 1fr minmax(
       max-content,
       10px
     );
@@ -137,6 +137,13 @@ header {
 
 .pizza-prix {
   justify-self: end;
+  /* align-self: center;
+  justify-items: center;
+  display: inline; */
+}
+
+.pizza-droite p {
+  justify-self: start;
 }
 
 .pizza-moins,
@@ -159,7 +166,7 @@ input:focus {
   outline: 1px solid var(--black2);
 }
 .pizza-prix-total {
-  justify-self: end;
+  justify-self: center;
 }
 
 /* Total commande */
@@ -167,4 +174,13 @@ input:focus {
 .total-commande {
   float: right;
   margin: 50px 120px;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background: none;
+  color: var(--black);
+  font-size: 1rem;
 }
