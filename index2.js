@@ -29,6 +29,11 @@ function afficheRecap(i) {
   <p> ${recapCommande.join("")} </p>
   <p> Montant total :  ${total.textContent} € </p>
   `;
+  document.querySelector("#smart-button-container #description").value =
+    recapCommande.join("");
+  document.querySelector("#smart-button-container #amount").value = parseInt(
+    total.textContent
+  );
 }
 
 let recapCommande = [];
@@ -56,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
       total.textContent = totalCommande;
       affichePaiement(total);
       afficheRecap(i);
-      console.log(typeof quantite[i].value);
     });
 
     boutonsPlus[i].addEventListener("click", (e) => {
