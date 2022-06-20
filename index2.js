@@ -1,47 +1,52 @@
-//fonction pour réinitialiser les inputs text (firefox garde en mémoire ce qui était inscrit)
-function resetElements() {
-  let inputs = document.querySelectorAll("input[type=text]");
-  for (let i = 0; i < inputs.length; i++) {
-    document.getElementsByTagName("input")[i].value = "0";
-    document.querySelector(".paiement-conteneur").style.visibility = "hidden";
+document.addEventListener("DOMContentLoaded", function () {
+  //fonction pour réinitialiser les inputs text (firefox garde en mémoire ce qui était inscrit)
+  function resetElements() {
+    let inputs = document.querySelectorAll("input[type=text]");
+    for (let i = 0; i < inputs.length; i++) {
+      document.getElementsByTagName("input")[i].value = "0";
+      document.querySelector(".paiement-conteneur").style.visibility = "hidden";
+    }
   }
-}
 
-// fonction pour afficher le bouton paypal/paiement si la commande est supérieure à zéro€
-function affichePaiement(total) {
-  if (parseInt(total.textContent) > 0) {
-    document.querySelector(".paiement-conteneur").style.visibility = "visible";
-  } else {
-    document.querySelector(".paiement-conteneur").style.visibility = "hidden";
+  // fonction pour afficher le bouton paypal/paiement si la commande est supérieure à zéro€
+  function affichePaiement(total) {
+    if (parseInt(total.textContent) > 0) {
+      document.querySelector(".paiement-conteneur").style.visibility =
+        "visible";
+    } else {
+      document.querySelector(".paiement-conteneur").style.visibility = "hidden";
+    }
   }
-}
 
-// fonction qui affiche le recap de la commande
-function afficheRecap(i) {
-  if (quantite[i].value > 0) {
-    recapCommande[i] =
-      nomPizza[i].textContent + parseInt(quantite[i].value) + ".";
-  } else {
-    recapCommande[i] = "";
-  }
-  document.querySelector(".recap-commande").innerHTML = `
+  // fonction qui affiche le recap de la commande
+  function afficheRecap(i) {
+    if (quantite[i].value > 0) {
+      recapCommande[i] =
+        nomPizza[i].textContent + parseInt(quantite[i].value) + ".";
+    } else {
+      recapCommande[i] = "";
+    }
+    document.querySelector(".recap-commande").innerHTML = `
   <p> Votre commande : </p>
   <p> ${recapCommande.join("")} </p>
   <p> Montant total :  ${total.textContent} € </p>
   `;
-  document.querySelector("#smart-button-container #description").value =
-    recapCommande.join("");
-  document.querySelector("#smart-button-container #amount").value = parseInt(
-    total.textContent
-  );
-}
+    document.querySelector("#smart-button-container #description").value =
+      recapCommande.join("");
+    document.querySelector("#smart-button-container #amount").value = parseInt(
+      total.textContent
+    );
+    document.querySelector("#invoiceid").value = 100;
+    console.log(
+      document.querySelector("#smart-button-container #invoiceid").value
+    );
+  }
 
-let recapCommande = [];
-let quantite = document.querySelectorAll("input");
-let nomPizza = document.querySelectorAll("span");
-let total = document.querySelector(".prix-total");
+  let recapCommande = [];
+  let quantite = document.querySelectorAll("input");
+  let nomPizza = document.querySelectorAll("span");
+  let total = document.querySelector(".prix-total");
 
-document.addEventListener("DOMContentLoaded", function () {
   let pizzas = document.querySelectorAll(".pizza");
   let boutonsMoins = document.querySelectorAll(".pizza-moins");
   let boutonsPlus = document.querySelectorAll(".pizza-plus");
