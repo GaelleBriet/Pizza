@@ -8,14 +8,11 @@
 :root {
   --white: white;
   --black: rgb(41, 41, 41);
-  --black2: rgb(145, 145, 145);
-  --red: red;
-  --green: green;
+  --black2: rgb(171, 171, 171);
 }
 
 body {
   height: 100vh;
-  overflow: hidden;
   color: var(--black);
 }
 
@@ -138,8 +135,17 @@ header {
 .pizza-prix {
   justify-self: end;
   /* align-self: center;
-  justify-items: center;
-  display: inline; */
+    justify-items: center;
+    display: inline; */
+}
+
+button.pizza-prix {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background: none;
+  color: var(--black);
+  font-size: 1rem;
 }
 
 .pizza-droite p {
@@ -176,11 +182,32 @@ input:focus {
   margin: 50px 120px;
 }
 
-button {
-  height: 30px;
-  width: 30px;
-  border: none;
-  background: none;
+/* Bouton reset */
+button.reset-btn {
+  background: var(--black2);
+  padding: 5px;
+  float: left;
+  margin: 50px 40px;
+  border: var(--black) 1px solid;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Paiement */
+
+.recap-commande {
+  background-color: var(--black2);
+  margin-bottom: 15px;
   color: var(--black);
-  font-size: 1rem;
+  padding: 5px;
+  border-radius: 3px;
+  border: var(--black) 1px solid;
+}
+
+.paiement-conteneur {
+  max-width: 400px;
+  margin: 100px auto;
+  visibility: hidden;
 }

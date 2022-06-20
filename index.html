@@ -45,9 +45,9 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <button class="pizza-prix pizza-prix1" value="8" disabled>8</button>
+          <button class="pizza-prix" value="8" disabled>8</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins1">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
@@ -55,8 +55,8 @@
             class="quantite quantite1"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus1">+</div>
-          <div class="pizza-prix-total pizza-prix-total1">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
@@ -69,9 +69,9 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <button class="pizza-prix pizza-prix2" value="9" disabled>9</button>
+          <button class="pizza-prix" value="9" disabled>9</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins2">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
@@ -79,8 +79,8 @@
             class="quantite quantite2"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus2">+</div>
-          <div class="pizza-prix-total pizza-prix-total2">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
@@ -92,9 +92,9 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <button class="pizza-prix pizza-prix3" value="10" disabled>10</button>
+          <button class="pizza-prix" value="10" disabled>10</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins3">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
@@ -102,8 +102,8 @@
             class="quantite quantite3"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus3">+</div>
-          <div class="pizza-prix-total pizza-prix-total3">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
@@ -116,9 +116,9 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <button class="pizza-prix pizza-prix4" value="11" disabled>11</button>
+          <button class="pizza-prix" value="11" disabled>11</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins4">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
@@ -126,8 +126,8 @@
             class="quantite quantite4"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus4">+</div>
-          <div class="pizza-prix-total pizza-prix-total4">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
@@ -140,9 +140,9 @@
           </div>
         </div>
         <div class="pizza-droite">
-          <button class="pizza-prix pizza-prix5" value="11" disabled>11</button>
+          <button class="pizza-prix" value="11" disabled>11</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins5">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
@@ -150,8 +150,8 @@
             class="quantite quantite5"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus5">+</div>
-          <div class="pizza-prix-total pizza-prix-total5">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
@@ -166,7 +166,7 @@
         <div class="pizza-droite">
           <button class="pizza-prix" value="12" disabled>12</button>
           <p>€</p>
-          <div class="pizza-moins pizza-moins6">−</div>
+          <div class="pizza-moins">−</div>
           <input
             type="text"
             name="pizza-quantite"
@@ -174,18 +174,81 @@
             class="quantite quantite6"
             readonly="readonly"
           />
-          <div class="pizza-plus pizza-plus6">+</div>
-          <div class="pizza-prix-total pizza-prix-total6">0</div>
+          <div class="pizza-plus">+</div>
+          <div class="pizza-prix-total">0</div>
           <p>€</p>
         </div>
       </div>
     </div>
 
     <div class="total-commande">
-      <p>Total : <span class="prix-total"></span> €</p>
+      <p>Total : <span class="prix-total">0</span> €</p>
     </div>
 
-    <div class="paiement-conteneur"></div>
+    <div class="reset">
+      <button class="reset-btn">Réinitialiser la commande</button>
+    </div>
+
+    <div class="paiement-conteneur">
+      <div class="recap-commande"></div>
+
+      <div id="smart-button-container">
+        <div style="text-align: center">
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+      <script
+        src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=EUR"
+        data-sdk-integration-source="button-factory"
+      ></script>
+      <script>
+        function initPayPalButton() {
+          paypal
+            .Buttons({
+              style: {
+                shape: "rect",
+                color: "silver",
+                layout: "vertical",
+                label: "pay",
+              },
+
+              createOrder: function (data, actions) {
+                return actions.order.create({
+                  purchase_units: [
+                    { amount: { currency_code: "EUR", value: 1 } },
+                  ],
+                });
+              },
+
+              onApprove: function (data, actions) {
+                return actions.order.capture().then(function (orderData) {
+                  // Full available details
+                  console.log(
+                    "Capture result",
+                    orderData,
+                    JSON.stringify(orderData, null, 2)
+                  );
+
+                  // Show a success message within this page, e.g.
+                  const element = document.getElementById(
+                    "paypal-button-container"
+                  );
+                  element.innerHTML = "";
+                  element.innerHTML = "<h3>Thank you for your payment!</h3>";
+
+                  // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+              },
+
+              onError: function (err) {
+                console.log(err);
+              },
+            })
+            .render("#paypal-button-container");
+        }
+        initPayPalButton();
+      </script>
+    </div>
 
     <script src="./index2.js"></script>
   </body>
